@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Kriterien</h1>
-         <v-form v-model="valid">
+         <v-form >
             <v-text-field 
             :counter="10"
             label="Kundenart"

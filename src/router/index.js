@@ -1,27 +1,33 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-import Kriterien from '@/components/Kriterien'
-import NotAuth from '@/components/NotAuth'
-import {requireAuth} from '../utils/auth'
+import VueRouter from 'vue-router'
+import store from '../store'
+import routes from './routes'
+import { sync } from 'vuex-router-sync'
+import { Store } from '../../node_modules/vuex';
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
+const Router = new VueRouter({
   mode:'history',
-  routes: [    
-    {
-      path: '/',
-      beforeEnter: requireAuth,
-      component: Kriterien
-    },
-    {
-      path: '/notAuth',
-      name: 'notauth',
-      component: NotAuth
-    },
-    {
-      path: '*',
-      redirect:'/'
-    }
-  ]
+  routes
 })
+
+sync(store, Router)
+
+Router.beforeEach((to,from,next)=>{
+  if(to.meta.requiresAuth){
+    //CheckAuth
+    console.log("TODO: retrieve Storetoken")
+    //TODO Security cyclus for Tokenretrieval
+    if(!store.state.Auth.authorisiert){
+      //TODO LOGIN
+    }else{
+      next();
+    }
+  }
+})
+
+
+
+
+export default Router
