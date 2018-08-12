@@ -1,3 +1,3 @@
-export const setAuth = (state)=>{
-    state.authorisiert = true
+export const setAuth = (state,authstate)=>{
+    state.authorisiert = authstate
 }

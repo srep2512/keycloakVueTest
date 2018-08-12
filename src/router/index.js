@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import store from '../store'
 import routes from './routes'
 import { sync } from 'vuex-router-sync'
-import { Store } from '../../node_modules/vuex';
+
 
 Vue.use(VueRouter)
 
@@ -14,6 +14,7 @@ const Router = new VueRouter({
 
 sync(store, Router)
 
+/*
 Router.beforeEach((to,from,next)=>{
   if(to.meta.requiresAuth){
     //CheckAuth
@@ -26,6 +27,7 @@ Router.beforeEach((to,from,next)=>{
     }
   }
 })
+*/
 
 
 

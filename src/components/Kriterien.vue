@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="ma-5">        
         <h1>Kriterien</h1>
          <v-form >
             <v-text-field 

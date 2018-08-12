@@ -1,10 +1,9 @@
 <template>
-  <v-app v-if="check">
+  <v-app>
     
     <v-toolbar
       app
       :clipped-left="clipped"
-      
     >
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
@@ -26,14 +25,12 @@
 import {isLoggedIn} from './utils/auth'
 
 export default {   
-  data(){
-    return{     
-      title:"VoBoCorrection"
-    }
-  },
-  computed:{
-    check(){
-      return this.$store.getters['Auth/getTest']
+  methods:{
+    login(){
+      this.$store.dispatch('Auth/authLogin',true)
+      .then(()=>{
+        this.$router.push('/')
+      })
     }
   }
 }
