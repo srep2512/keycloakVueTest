@@ -3,7 +3,10 @@ export const checkStore = (state) =>{
     //state.commit('setAuth');
 }
 
-export const authLogin= (state,auth) =>{
-    console.log("authLogin"+auth);
-    state.commit('setAuth',auth);
+export const setAuthLogin= (state,auth) =>{   
+    state.commit('setAuth',auth);    
+}
+
+export const setKeyCloak= (state,auth) =>{   
+    state.commit('setKeyCloak',auth);    
 }

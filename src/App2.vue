@@ -46,15 +46,15 @@
                 {{ item.text }}
               </v-list-tile-title>
             </v-list-tile-content>
-          </v-list-tile>
-            
+          </v-list-tile>          
         </template>
-      </v-list>
+      </v-list>     
     </v-navigation-drawer>
     <v-toolbar color="amber" app absolute clipped-left>
       <v-toolbar-side-icon @click.native="drawer = !drawer"></v-toolbar-side-icon>
       <span class="title ml-3 mr-5">Vobo&nbsp;<span class="text">Correction</span></span>      
       <v-spacer></v-spacer>
+      <v-btn color="secondary" @click=logout>LOGOUT</v-btn>
     </v-toolbar>
     <v-content>
       <router-view />
@@ -75,7 +75,7 @@
         { icon: 'lightbulb_outline', text: 'Notes',route: 'Home' },  
         { divider: true },
         { icon: 'keyboard', text: 'Notes',route: 'notauth' },        
-        { divider: true }             
+        { divider: true }                 
       ]
     }),
     props: {
@@ -89,6 +89,12 @@
     methods:{
         route(rou){
             this.$router.push(rou)
+        },
+        logout(){
+            var key = this.$store.getters['Auth/getKeyCloak'];
+            //var role = key.tokenParsed
+            //console.log(role.realm_access.roles)
+            key.logout();
         }
     }
   }

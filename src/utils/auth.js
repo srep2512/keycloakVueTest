@@ -25,7 +25,8 @@ export function requireAuth(to,from,next){
       keycloakAuth.updateToken(10)
             .success(() => {
             console.log("Time to Set "+keycloakAuth.authenticated)
-            store.dispatch('Auth/authLogin', keycloakAuth)
+            store.dispatch('Auth/setAuthLogin', keycloakAuth)
+            store.dispatch('Auth/setKeyCloak', keycloakAuth)
             next()         
             })
         })

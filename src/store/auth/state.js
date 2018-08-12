@@ -1,3 +1,4 @@
 export default{
-    authorisiert:false
+    authorisiert:false,
+    keyCloak:null
 }
